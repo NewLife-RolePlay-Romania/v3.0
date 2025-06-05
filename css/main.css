@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gilroy:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://www.newliferp.ro/fonts/stylesheet.css");
+@import "https://assets.nopixel.net/web/fonts/gilroy/stylesheet.css";
+
 
 .bg-button { background: var(--color-primary)!important; box-shadow: none!important; }
 .text-check { color: rgba(255, 255, 255, 0.8)!important; }
@@ -11,12 +14,171 @@ p { margin: 0 !important; }
 .text-h6 { color: #fff; }
 .q-card__section.q-card__section--vert.q-pt-none { color: #fff; }
 
+.special-weight {
+    position: relative;
+    color: rgb(255, 255, 255);
+    color: rgb(175, 175, 175);
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'Gilroy', sans-serif !important;
+    letter-spacing: 0.1vh;
+    left: 8.72%;
+    bottom: -11.8rem;
+    float: left;
+    cursor: none;
+}
+
+/* Poziționare icon pe slot */
+.slot-required-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    opacity: 9%;
+    color: #ffffff;        /* culoare default la alegere */
+    pointer-events: none;
+    z-index: 3;
+  }
+
+.slot-has-item .slot-required-icon {
+    display: none;
+  }
+
+/* BLink effect for invalid drops */
+.invalid-drop {
+  animation: blinkRed 1s infinite alternate;
+}
+@keyframes blinkRed {
+  0% {
+    background: radial-gradient(
+      108.33% 108.33% at 50% 50%,
+      #b46262 0%,
+      #673a3a 100%
+    );
+  }
+  100% {
+    background: radial-gradient(
+      108.33% 108.33% at 50% 50%,
+      #673a3a 0%,
+      #b46262 100%
+    );
+  }
+}
+
+/* LEFT Boxes: stack vertically on the left side */
+.player-body-leftboxes {
+  position: absolute;
+  top: 0%;       /* adjust as you like */
+  left: -106%;      /* or left: 0; and tweak further */
+  display: flex;
+  flex-direction: column;
+  gap: -2px;      /* spacing between boxes */
+}
+
+/* RIGHT Boxes: stack vertically on the right side */
+.player-body-rightboxes {
+  position: absolute;
+  top: 0%;
+  right: 107%;
+  display: flex;
+  flex-direction: column;
+  gap: -2px;
+}
+
+.item-split {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px); /* adjust as needed */
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: radial-gradient(83% 83% at 50% 50%, rgb(85, 84, 84,0.98), rgb(54, 54, 54,0.89));
+    color: #ffffff;
+    font-family: "Gilroy";
+    font-size: 1.29vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 108.5%;
+    border-radius: 3px;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 99999999999999999999999;
+  }
+
+.item-split-range {
+    width: 100%;
+    margin: 5px 0;
+}
+
+/* This affects the jQuery UI slider handle and track */
+.item-split-range .ui-slider-handle {
+    width: 1.5em;
+    height: 1.5em;
+    top: -0.4em;
+    background: #31d4a9;
+    border-radius: 50%;
+    border: none;
+    cursor: grab;
+}
+.item-split-range .ui-slider-horizontal {
+    height: 0.4em;
+    background: #ffffff;
+}
+.item-split-range .ui-slider-range {
+    background: #31d4a9;
+}
+
+/* Amount display */
+#item-split-amount {
+    font-size: 1.3vh;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    border-radius: 3px;
+    padding: 3px;
+}
+
+/* Action buttons */
+.item-split-action {
+    color: #ffffff;
+    background: radial-gradient(83% 83% at 50% 50%, rgba(80, 104, 88, 0.98), rgba(59, 80, 70, 0.89));
+    font-size: 1.1vh;
+    font-weight: 500;
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.item-split-cancel {
+    color: #ffffff;
+    background: radial-gradient(83% 83% at 50% 50%, rgba(104, 80, 80, 0.98), rgba(80, 59, 59, 0.89));
+    font-size: 1.1vh;
+    font-weight: 500;
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.item-split-action:hover {
+    background: #21ac8b;
+    color: #eef3f2;
+}
+.item-split-cancel:hover {
+    background: radial-gradient(
+        108.33% 108.33% at 50% 50%,
+        #b46262 0%,
+        #673a3a 100%);
+    color: #eef3f2;
+}
+
 @media screen and (min-width: 2540px) {
     #itembox-label {
         min-height: 1.8vh;
     }
 }
-
 
 .row {
     display: flex;
@@ -54,7 +216,7 @@ p { margin: 0 !important; }
     line-height: 48px;
     text-transform: normal;
     font-size: 1.5vh;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
   }
 
 /* rgb() */
@@ -124,6 +286,18 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
 }
 
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: none;
+    font-family: "Roboto", sans-serif;
+    background: transparent;
+    background-color: transparent;
+}
+
 .weight-img-other {
     margin-top: 0.6%;
     width:4%;
@@ -131,9 +305,6 @@ input[type=number]::-webkit-outer-spin-button {
     position:absolute;
 }
 
-body {
-    overflow-x: hidden;
-}
 
 #qbcore-inventory {
     position: absolute;
@@ -182,16 +353,16 @@ body {
 }
 
 #backpack-inv-label {
-    position: relative;
+    position: absolute;
     text-shadow: 0 0 1vh #2debba;
     color: #00f8b9;
-    font-family: 'Oswald', sans-serif !important;
-    font-weight: 400;
+    font-family: 'Gilroy', sans-serif !important;
+    font-weight: 600;
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: 0.01vh;
-    left: 33.2%;
-    top: 61%;
+    left: 39.2%;
+    top: 54.3%;
     float: center;
     text-transform: normal;
     cursor: none;
@@ -199,19 +370,18 @@ body {
 
 .player-inventory-bg {
     position: absolute;
-    top: 62.7%;
+    top: 60.1%;
     float: right;
-    left: 30.2%;
+    left: 34%;
     margin: 0 auto;
     width: 35.26%;
     max-width: 31.7%;
     height: 36.17%;
 }
-
 .player-inventory {
     position: absolute;
-    top: 8%;
-    left: 2.5%;
+    top: -1%;
+    left: 5.5%;
     width: 88%;
     max-width: 102.22%;
     height: 80%;
@@ -225,7 +395,7 @@ body {
 .player-inventory-backpack {
     position: fixed;
     top: 20.5%;
-    left: 30.8%;
+    left: 35.8%;
     width: 29%;
     max-width: 102.22%;
     height: 40%;
@@ -292,15 +462,10 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 3px;
-    /* box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2); */
-    /* background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); */;
-
-
 }
 
 .inv-help-options {
     background: radial-gradient(83% 83% at 50% 50%, rgba(180, 180, 180, 0.158), rgba(120, 120, 120, .05)) !important;
-    /* border: 2px solid rgba(49, 53, 68, 0.8); */
     height: 2.8rem;
     width: 2.8rem; 
     display: flex;
@@ -328,7 +493,7 @@ body {
 
 .btn {
     box-shadow: none;
-  }
+}
   
 .combine-option-container {
     display: none;
@@ -361,7 +526,7 @@ body {
 	width: 19.5%;
 	top: 21.3%;
 	left: -2%;
-    cursor: pointer; /* Can also be 'none' however, as these are the buttons I feel as the pointer fits better */
+    cursor: pointer;
     z-index: 200;
 }
 
@@ -389,10 +554,9 @@ body {
     top: 2vh;
 }
 .ammo-info-header {
-    /* background-color: rgba(5, 5, 5, 0.5); */
     width: 100%;
     color: white;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     background-color: rgba(0, 0, 0, 0.192);
     font-size: 1.vh;
     padding: .4vh;
@@ -401,7 +565,7 @@ body {
 .ammo-info {
     position: relative;
     color: white;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     font-weight: 200;
     font-size: 1.vh;
     margin-left: .8vh;
@@ -427,15 +591,12 @@ body {
     text-transform: none;
     border: none;
     padding: 0.4rem 0;
-    font-family: 'Oswald', sans-serif  !important;
-    /* border-radius: 0.25rem; */
+    font-family: 'Gilroy', sans-serif  !important;
 }
 
 .inv-option-item:hover {
     background-color: #444555;
-    /* border: 2px solid rgba(49, 53, 68, 0.8); */
 }
-
 
 .btn-combine {
     position: relative;
@@ -449,12 +610,7 @@ body {
     line-height: 48px;
     font-size: 1.1vh;
     font-weight: 900;
-    font-family: 'Oswald', sans-serif !important;
-    border-radius: 0px;
-    border-width: 1px;
-    border-style: solid;
-    border-image: initial;
-    transition: background-color 0.1s linear 0s;
+    font-family: 'Gilroy', sans-serif !important;
     border-radius: 5px!important;
     opacity: 70%;
 }
@@ -464,9 +620,8 @@ body {
     text-align: center;
     font-size: 1.5vh;
     font-weight: 300;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     outline: none;
-
 }
 
 /* shop prices */
@@ -477,7 +632,7 @@ body {
     text-align: center; 
     font-size: 1.25vh; 
     line-height: 1.8vh; 
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
 }
 
 .item-slot-name1 > p {
@@ -491,17 +646,19 @@ body {
 
 .item-slot-amount {
     display: none;
-    font-size: 0.7vh;
+    font-size: 12px;
     color: white;
+    font-weight: 600;
+    font-style: normal;
+    font-display: block;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 2px;
+    right: 7px;
     width: 100%;
     height: 20px;
     display: flex;
     justify-content: flex-end;
 }
-
 
 .inv-item-slot-name {
     position: absolute;
@@ -532,7 +689,7 @@ body {
 
 .item-slot-name > p {
     display: none;
-    font-family: "Oswald";
+    font-family: "Gilroy";
     color: var(--color-turquoise);
     text-align: right;
     font-size: 1.25vh;
@@ -555,7 +712,7 @@ body {
     font-size: 1.25vh;
     text-align: center;
     letter-spacing: 0px;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     white-space: pre;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -610,8 +767,8 @@ body {
     margin-top: 1.5vh;
     width: auto;
     height: auto;
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 60%;
+    max-height: 60%;
 }
 
 .item-slot-img2 img {
@@ -624,7 +781,7 @@ body {
 
 .player-inv-info {
     position: absolute;
-    left: -3.3%;
+    left: 1.5%;
     top: 15.6%;
     width: 34.5%;
     height: 10%;
@@ -654,7 +811,7 @@ body {
     text-shadow: 0 0 1vh #2debba;
     color: #00f8b9;
     font-size: 1rem;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     font-weight: 400;
     letter-spacing: 0.01vh;
     left: 108.9%;
@@ -670,7 +827,7 @@ body {
     color: rgb(175, 175, 175);
     font-size: 0.7rem;
     font-weight: 700;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     letter-spacing: 0.1vh;
     left: 108.8%;
     bottom: 5.5px;
@@ -682,7 +839,7 @@ body {
     text-shadow: 0 0 1vh #2debba;
     color: #31d4a9;
     font-size: 1rem;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     font-weight: 400;
     letter-spacing: 0.01vh;
     left: 37%;
@@ -692,13 +849,12 @@ body {
     cursor: none;
 }
 
-
 #other-inv-weight {
     position: relative;
     color: rgb(175, 175, 175);
     font-size: 0.7rem;
     font-weight: 700;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     letter-spacing: 0.1vh;
     left: 37%;
     bottom: 5.5px;
@@ -715,7 +871,7 @@ body {
 .player-inv-weight > p {
     color: white;
     font-size: 12px;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
 }
 
 .other-inv-info {
@@ -738,7 +894,7 @@ body {
     max-width: 250px;
     align-items: center;
     color: white;
-    z-index: 99999999999999999999999;
+    z-index: 99999999999999999999;
 }
 
 .item-shit {
@@ -753,7 +909,7 @@ body {
 }
 
 .item-shit-option {
-    color: #05ebb5; /* Sets text and icon color */
+    color: #ffffff; /* Sets text and icon color */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -763,26 +919,26 @@ body {
     min-height: 2.84vh;
     padding: 10px;
     
-    background: radial-gradient(83% 83% at 50% 50%, rgb(85, 84, 84, 0.9), rgb(54, 54, 54, 0.3));
-
+    background: radial-gradient(83% 83% at 50% 50%, rgb(85, 84, 84,0.98), rgb(54, 54, 54,0.89));
     z-index: 99999999999999999999999;
     transition: 0.7s background;
 }
 
 /* Ensure Font Awesome icons inherit the same color */
 .item-shit-option i {
-    color: inherit;
+    color: #05ebb5;
 }
 .item-shit-option:hover{
     cursor: pointer;
     background: #21ac8b;
     color: #eef3f2;
 }
-
+.item-shit-option i:hover {
+    color: #05ebb5;
+}
 
 .iteminfo-content {
     z-index: 99999999999999999999999;
-
 }
 
 .item-shit-option > * {
@@ -804,7 +960,7 @@ body {
     position: relative;
     top: .5vh;
     height: fit-content;
-    background: radial-gradient(83% 83% at 50% 50%, rgb(85, 84, 84,0.9), rgb(54, 54, 54,0.3));
+    background: radial-gradient(83% 83% at 50% 50%, rgb(85, 84, 84,0.98), rgb(54, 54, 54,0.89));
     margin-bottom: 0.3rem;
     font-weight: 500;
     border-radius: 5px;
@@ -826,13 +982,6 @@ body {
     font-weight: 500;
 }
 
-/* .item-info-line {
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    left: 0%;
-    background: white;
-} */
 .item-info-description {
     z-index: 5555;
     top: 105%;
@@ -849,7 +998,7 @@ body {
     align-items: left;
     text-align: left;
     border-radius: 3px;
-    background: radial-gradient(83% 83% at 50% 50%, rgb(85, 84, 84,0.9), rgb(54, 54, 54,0.3));
+    background: radial-gradient(83% 83% at 50% 50%, rgb(85, 84, 84,0.98), rgb(54, 54, 54,0.89));
 }
 
 .item-uselessinfo {
@@ -860,20 +1009,107 @@ body {
     margin-left: 10px;
 }
 
+@keyframes slideOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+.itembox-container.disappearing {
+    animation: slideOutLeft 0.3s forwards;
+}
+
+.notify {
+    background: linear-gradient(to right, rgba(42,45,58,1), rgba(0,0,255,0));
+    color: white;
+    width: 10%;
+    height: 7%;
+    position: absolute;
+    z-index: 1;
+    top: 62%;
+    left: -20%;
+    display: none;
+}
+
+.notify .notify-svg{
+    height: 80% !important;
+    width: 80% !important;
+    color: #0ceebf;
+    border-radius: 0.2vh;
+    position: absolute;
+    z-index: 5;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    text-align: start;
+    top: 10%;
+    left: -20%;
+}
+
+.notify .item-name{
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    font-size: 1.2vh;
+    color: white;
+    font-weight: 400;
+}
+
+.notify .item-type{
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    font-size: 0.9vh;
+    padding: 0.1vh 0.4vh; 
+    background-color: #173d54;
+    color: #298bc7;
+    font-weight: bold;
+    font-weight: 400;
+}
+
+.notify .item-count{
+    position: absolute;
+    top: 50%;
+    left: 55.5%;
+    font-size: 0.9vh;
+    padding: 0.1vh 0.4vh; 
+    background-color: #00753b;
+    color: #00f8b9;
+    font-weight: bold;
+    font-weight: 400;
+}
+
+.notify .item-img img{
+    z-index: 5;
+    height: 70% !important;
+    width: 25% !important;
+    color: #0ceebf;
+    border-radius: 0.2vh;
+    position: absolute;
+    top: 16%;
+    left: 8%;
+    z-index: 15;
+}
+
+
 .iteminfo-content {
     width: 100%;
 }
 
 .itemboxes-container {
-    height: 6.5rem;
-    min-width: 40rem;
-    max-width: 180rem;
-    max-height: 180rem;
-    width: fit-content;
-    position: absolute;
-    left: 1%;
-    bottom: 35%;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 30vw;
+    transform: translateX(-50%);
+    padding-bottom: 3vh;
 }
 
 .itemboxes-container-background {
@@ -922,7 +1158,7 @@ body {
 #itembox-action > p {
     font-size: 14px;
     font-weight: 200;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     white-space: pre;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -942,7 +1178,7 @@ body {
 }
 
 #itembox-label > p {
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     padding-left: 15px;
     padding-right: 15px;
     font-size: 1.5vh;
@@ -982,7 +1218,7 @@ body {
     color: white;
     padding: 3px;
     font-size: 14px;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
 }
 
 #requiredItem-label {
@@ -1042,9 +1278,6 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 3px;
-    /* box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2); */
-    /* background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); */;
-
 }
 
 .z-hotbar-item-slot {
@@ -1056,7 +1289,6 @@ body {
     float: left;
     background: url(https://r2.fivemanage.com/S24fvk6HQxnz5RKFmS5Im/test6.png);
     background-repeat: no-repeat;
-    /* -webkit-backdrop-filter: blur(10px); */
     transition: opacity 0.2s ease 0s;
     opacity: 90%;
     z-index: 9999;
@@ -1079,7 +1311,7 @@ body {
     font-size: 1.25vh;
     font-weight: 800;
     cursor: none;
-    font-family: "Oswald";
+    font-family: "Gilroy";
 }
 
 .z-hotbar-item-slot-amount-name {
@@ -1117,7 +1349,7 @@ body {
     font-size: 1.15vh;
     text-align: left;
     letter-spacing: 0px;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     white-space: pre;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -1191,7 +1423,7 @@ body {
     bottom: 0;
     right: 0;
     margin: .3vh;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
 }
 
 .ammo-box-amount {
@@ -1233,7 +1465,7 @@ body {
     margin: 5vh;
     font-size: 3vh;
     color: rgb(255, 255, 255);
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
 }
 
 .weapon-attachments-container-description {
@@ -1242,7 +1474,7 @@ body {
     top: 5vh;
     font-size: 1.7vh;
     color: rgba(255, 255, 255, 0.8);
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
 }
 
 .weapon-attachments-container-details {
@@ -1251,7 +1483,7 @@ body {
     top: 9vh;
     font-size: 1.4vh;
     color: rgba(255, 255, 255, 0.8);
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
 }
 
 .weapon-attachments-container-detail-durability {
@@ -1291,7 +1523,7 @@ body {
     left: 0;
     margin: 5vh;
     color: rgba(255, 255, 255, 0.8);
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     font-size: 1.4vh
 }
 
@@ -1327,7 +1559,7 @@ body {
     text-align: center;
     text-transform: uppercase;
     line-height: 1.9vh;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     font-weight: 100;
 }
 
@@ -1408,7 +1640,7 @@ body {
     text-align: center;
     line-height: 6vh;
     color: white;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     transition: .05s linear;
     z-index: 9999;
 }
@@ -1505,7 +1737,7 @@ body {
         box-shadow: 0 0 1vh rgba(0, 0, 0, 0.3);
         text-align: center;
         border: none;
-        font-family: 'Oswald', sans-serif !important;
+        font-family: 'Gilroy', sans-serif !important;
         color: white;
         transition: background-color .1s linear;
         opacity: 80%;
@@ -1516,7 +1748,7 @@ body {
         position: relative;
         color: white;
         font-size: 20px;
-    font-family: 'Oswald', sans-serif !important;
+        font-family: 'Gilroy', sans-serif !important;
         font-weight: 300;
         letter-spacing: 0.01vh;
         left: 109%;
@@ -1530,7 +1762,7 @@ body {
         position: relative;
         color: white;
         font-size: 20px;
-        font-family: 'Oswald', sans-serif !important;
+        font-family: 'Gilroy', sans-serif !important;
         font-weight: 300;
         letter-spacing: 0.01vh;
         left: 29%;
@@ -1545,14 +1777,13 @@ body {
         color: rgb(255, 255, 255);
         font-size: 14px;
         font-weight: 300;
-        font-family: 'Oswald', sans-serif !important;
+        font-family: 'Gilroy', sans-serif !important;
         letter-spacing: 0.1vh;
         left: -56.5%;
         bottom: 5.5px;
         float: right;
         cursor: none;
     }
-
 }
 
 .craft-item-slot {
@@ -1574,7 +1805,6 @@ body {
 
 .inventory-search-input {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
 }
 
@@ -1607,7 +1837,7 @@ body {
     font-size: 0.8vw;
     border: 1px solid rgba(255, 254, 254,0.1);
     overflow: hidden;
-    font-family: 'AkrobatBold';
+    font-family: 'Gilroy';
     font-weight: 500;
     z-index: 99999999999999;
 }
@@ -1621,7 +1851,6 @@ body {
     color: #7C898D;
     font-weight: 300;
     font-size: 0.65vw;
-    /* padding-top: 0.1vw; */
 }
 
 #MDRSTopDivRight2 {
@@ -1645,7 +1874,7 @@ body {
 	position: absolute;
 	bottom: 27.8%;
 	margin: 0 auto;
-	left: -70%;
+	left: -66.5%;
 	right: 0;
 	text-align: center;
 	width: 15%;
@@ -1664,8 +1893,8 @@ body {
 	height: 45%;
 }
 
- /* Personal Information */
- .inventory-name4 {
+/* Personal Information */
+.inventory-name4 {
     position:absolute;
     padding: 0;
     margin: 0;
@@ -1673,7 +1902,6 @@ body {
     font-display: bold;
     font-weight: 400;
     text-transform: capitalize;
-    /* text-shadow: 0 0 1vh #575e5c; */
     color: #e7e7e7d3;
     top: 74%;
     margin-left: 5.5%;
@@ -1683,7 +1911,6 @@ body {
     position: absolute;
     width: 0.9rem;
     height: 0.9rem;
-    text-shadow: 0 0 1vh #2debba;
     display: block;
     font-size: 1rem;
     background-image:url(https://i.ibb.co/RSYZNh8/image.png);
@@ -1692,12 +1919,11 @@ body {
     top: 17%;
     margin-left: -15%;
 }
-  .personal-vehicle-line {
+.personal-vehicle-line {
     content:' ';
     position: absolute;
     width: 3.55px;
     height: 35px; 
-    /* border: 1px solid rgba(0, 0, 0, 0.37); */
     background-color: rgba(44, 156, 231, 0.897); 
     border-radius: 10px;
     top: 79%;
@@ -1709,9 +1935,8 @@ body {
     padding: 0;
     margin: 0;
     font-size: 1.65vh;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
-    /* text-shadow: 0 0 1vh #575e5c; */
     color: #797878fd;
     top: 78.7%;
     margin-left: 6%;
@@ -1722,7 +1947,7 @@ body {
     padding: 0;
     margin: 0;
     font-size: 1.65vh;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
     color: #dddadafd;
     top: 80.3%;
@@ -1734,7 +1959,6 @@ body {
     position: absolute;
     width: 3.55px;
     height: 35px; 
-    /* border: 1px solid rgba(0, 0, 0, 0.37); */
     background-color: rgba(208, 105, 255, 0.952); 
     border-radius: 10px;
     top: 79%;
@@ -1746,9 +1970,8 @@ body {
     padding: 0;
     margin: 0;
     font-size: 1.65vh;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
-    /* text-shadow: 0 0 1vh #575e5c; */
     color: #797878fd;
     top: 78.7%;
     margin-left: 18.5%;
@@ -1759,7 +1982,7 @@ body {
     padding: 0;
     margin: 0;
     font-size: 1.65vh;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
     color: #dddadafd;
     top: 80.3%;
@@ -1771,7 +1994,6 @@ body {
     position: absolute;
     width: 3.55px;
     height: 35px; 
-    /* border: 1px solid rgba(0, 0, 0, 0.37); */
     background-color: rgba(190, 255, 105, 0.952); 
     border-radius: 10px;
     top: 85%;
@@ -1783,9 +2005,8 @@ body {
     padding: 0;
     margin: 0;
     font-size: 1.65vh;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
-    /* text-shadow: 0 0 1vh #575e5c; */
     color: #797878fd;
     top: 84.7%;
     margin-left: 6%;
@@ -1796,7 +2017,7 @@ body {
     padding: 0;
     margin: 0;
     font-size: 1.65vh;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
     color: #dddadafd;
     top: 86.3%;
@@ -1808,7 +2029,6 @@ body {
     position: absolute;
     width: 3.55px;
     height: 35px; 
-    /* border: 1px solid rgba(0, 0, 0, 0.37); */
     background-color: rgba(255, 165, 105, 0.952); 
     border-radius: 10px;
     top: 85%;
@@ -1820,9 +2040,8 @@ body {
     padding: 0;
     margin: 0;
     font-size: 1.65vh;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
-    /* text-shadow: 0 0 1vh #575e5c; */
     color: #797878fd;
     top: 84.7%;
     margin-left: 18.5%;
@@ -1833,7 +2052,7 @@ body {
     padding: 0;
     margin: 0;
     font-size: 1.65vh;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Gilroy', sans-serif;
     font-weight: 300;
     color: #dddadafd;
     top: 86.3%;
@@ -1845,33 +2064,33 @@ body {
 }
   
 .character-tracers .left-leg {
-    top: 35.5rem;
-    right: 89.1rem;
+    top: 40.5rem;
+    right: 87.1rem;
 }
   
 .character-tracers .left-arm {
     top: 18rem;
-    right: 87.2rem;
+    right: 85.3rem;
 }
   
 .character-tracers .right-leg {
-    top: 39rem;
-    right: 98.5rem;
+    top: 40.2rem;
+    right: 97.3rem;
 }
   
 .character-tracers .head {
     top: 14rem;
-    right: 98.0rem;
+    right: 95.6rem;
 }
   
 .character-tracers .right-arm {
     top: 23rem;
-    right: 102.5rem;
+    right: 100rem;
 }
   
 .character-tracers .body {
     top: 24rem;
-    right: 91rem;
+    right: 89rem;
 }
   
 .character-tracers img {
@@ -1897,6 +2116,7 @@ body {
     color: #f1f1f1;
     font-size: 0.74rem;
     bottom: 3.25rem;
+    width : 100px;
 }
 
 /* Pockets */
@@ -1914,10 +2134,10 @@ body {
     text-shadow: 0 0 1vh #2debba;
     color: #00f8b9;
     font-size: 1rem;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Gilroy', sans-serif !important;
     font-weight: 400;
     letter-spacing: 0.01vh;
-    left: 6.2%;
+    left: 8.7%;
     bottom: -170px;
     float: left;
     text-transform: normal;
@@ -1929,7 +2149,7 @@ body {
 	position: absolute;
 	bottom: 27.8%;
 	margin: 0 auto;
-	left: -70%;
+	left: -66.5%;
 	right: 0;
 	text-align: center;
 	width: 15%;
@@ -1955,7 +2175,7 @@ body {
 	width: 2.5%;
 	height: 4.5%;
 	padding: 9.5px;
-	right: 66.2%;
+	right: 61.5%;
 	top: 14.7%;
 	text-align: center;
 	font-size: 23px;
@@ -2029,7 +2249,7 @@ body {
 	position: absolute;
     width: 3rem;
     height: 3rem;
-	left: 3%;
+	left: 5.5%;
 	top: 14.7%;
 	text-align: center;
 	font-size: 23px;
@@ -2044,11 +2264,12 @@ body {
     width: 3rem;
     height: 3rem;
 	top: -15%;
+    left: 0%;
     display:block;
     background-image:url(https://i.ibb.co/b27LQT8/image.png);
     background-size: 100%;
     background-repeat: no-repeat;
-    }
+}
 .pocket-inventory-icon:after {
     content:' ';
     position: absolute;
@@ -2062,15 +2283,15 @@ body {
     background-image:url(https://i.ibb.co/0m2QTn3/image.png);
     background-size: 100%;
     background-repeat: no-repeat;
-    }
+}
 
 .backpack-inventory-icon {
 	position: absolute;
 	width: 3rem;
 	height: 3rem;
 	padding: 9.5px;
-	right: 66.2%;
-	top: 60%;
+	right: 61.4%;
+	top: 53.5%;
 	text-align: center;
 	font-size: 23px;
     color: #2debba;
@@ -2102,12 +2323,10 @@ body {
     font-size: 1rem;
 }
 
-
-
 .item-box-list{
     position: absolute;
     top: 50%;
-    left: 57%;
+    left: 72%;
     width: 100%;
     height: 30%;
     flex-direction: column;
@@ -2133,8 +2352,6 @@ body {
     font-size: 0.8vh;
     background-color: #717475;
     font-weight: lighter;
-    /* width: 5.5%;
-    height: 70%; */
     padding: 0.53vh 0.8vh;
     display: none;
     text-align: center;
@@ -2142,7 +2359,6 @@ body {
     align-items: center;
     border-radius: 0.1vh;
 }
-        
         
 .item-box-list svg{
     height: 1.55vw !important;
@@ -2158,7 +2374,7 @@ body {
 .invsearch-input{
     position: absolute;
     top: 20%;
-    right: 16.6%;
+    right: 1.5%;
     width: 26.2%;
     height: 6%;
     background-color: transparent;
@@ -2177,8 +2393,8 @@ body {
     
 .svg-search{
     position: absolute;
-    top: 25%;
-    right: 39%;
+    top: 26%;
+    right: 23.8%;
     color: gray;
     font-size: 1.2vh;
     width: 0.8vw;
@@ -2189,7 +2405,7 @@ body {
     position: absolute;
     top: 28%;
     right: 23%;
-     color: gray;
+    color: gray;
     font-size: 1.2vh;
 }
         
@@ -2237,7 +2453,7 @@ body {
     position: absolute;
     top: 42%;
     left: 5%;
-     width: 28%;
+    width: 28%;
     height: 45%;
     z-index: 9999;
 }
@@ -2261,7 +2477,7 @@ body {
 }
         
 .help-box .helpclose{
-     position: absolute;
+    position: absolute;
     top: 90%;
     left: 0%;
     width: 100%;
@@ -2329,4 +2545,28 @@ body {
     text-align: center;
     border-top-left-radius: 0.3vh;
     border-top-right-radius: 0.3vh;
+}
+
+/* The .blink-disallowed class for special item boxes 
+   that blink red if item is not allowed. */
+.blink-disallowed {
+    animation: disallowedblink 1s infinite alternate;
+}
+
+/* Keyframes for the blinking red gradient */
+@keyframes disallowedblink {
+    0% {
+        background: radial-gradient(
+            108.33% 108.33% at 50% 50%,
+            #b46262 0%,
+            #673a3a 100%
+        );
+    }
+    100% {
+        background: radial-gradient(
+            108.33% 108.33% at 50% 50%,
+            #673a3a 0%,
+            #b46262 100%
+        );
+    }
 }
