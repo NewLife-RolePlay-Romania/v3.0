@@ -20,7 +20,7 @@
         <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
     </head>
 
-    <body style="background-color: rgba(0, 0, 0, 0); font-family: 'Roboto', sans-serif !important;">
+    <body style="background-color: rgba(0, 0, 0, 0); font-family: 'Gilroy', sans-serif !important;">
       <div id="qbcore-inventory">
             <div class="inventory-info">
               <!-- Personal Information-->
@@ -49,19 +49,19 @@
               <!-- <div class="circle"></div> -->
               <!-- <div class="personal-information">Personal Information</div> -->
               <div id="MDRSTopDivRight">
-                <div id="MDRSTopDivRight1"><span>Exit</span></div>
-                <div id="MDRSTopDivRight2" style="background-color: rgb(255, 254, 254,0.1);"><span>Escape</span></div>
+                <div id="MDRSTopDivRight1"><span>Iesire</span></div>
+                <div id="MDRSTopDivRight2" style="background-color: rgb(255, 254, 254,0.1);"><span>Esc</span></div>
             </div> 
 
 
 
             <!-- Inventory Icons -->
             <div class="inv-icons-container">
-              <span id="pocket-inv-label" class="pocket-inv-label">Body</span>
-              <span id="backpack-inv-label" class="pocket-inv-label">Backpack</span>
+              <span id="pocket-inv-label" class="pocket-inv-label">Corpul tau</span>
+              <span id="backpack-inv-label" class="pocket-inv-label">Ghiozdan</span>
             </div>
-
-            <div class="inv-options">
+		<div class="special-weight"></div>
+            <div class="inv-options" style="display: none;">
               <div class="inv-options-list">
                   <input  type="number" id="item-amount" class="inv-option-item" min=1 max="10000" style="color: grey;"placeholder="Amount"
                   pattern="[0-9]" onfocus="this.value=''" placeholder="" oninput="validity.valid||(value='');"></input>
@@ -72,19 +72,21 @@
               <div class="player-body">
                   <img src="./inventory_images/body.png" alt="player-body" style="width:248px;height:478px;">
                 </div>
-              </div>
+
+
+            </div>
 
               <div class="character-tracers" style="z-index: 1">
                 <div class="left-leg">
-                  <div class="body-part" style="right: 3.8rem">Left Leg</div>
+                  <div class="body-part" style="right: 0.1rem">Picior Stang</div>
                   <div class="bar" style="top: 0.85rem; left: 1.5rem">
                     <div class="progress"></div>
                   </div>
                   <img src="inventory_images/line.png" style="object-fit: cover" />
                 </div>
                 <div class="right-leg">
-                  <div class="body-part" style="right: 4.25rem">
-                    Right Leg
+                  <div class="body-part" style="right: 1.1rem">
+                    Picior Drept
                   </div>
                   <div class="bar" style="top: 0.85rem; left: 0.5rem">
                     <div class="progress"></div>
@@ -92,15 +94,15 @@
                   <img src="inventory_images/line2.png" style="object-fit: cover" />
                 </div>
                 <div class="body">
-                  <div class="body-part" style="right: 4.7rem">Body</div>
+                  <div class="body-part" style="right: 0.1rem">Corp</div>
                   <div class="bar" style="top: 0.85rem; left: 1.5rem">
                     <div class="progress"></div>
                   </div>
                   <img src="inventory_images/line.png" style="object-fit: cover" />
                 </div>
                 <div class="right-arm">
-                  <div class="body-part" style="right: 4.25rem">
-                    Right arm
+                  <div class="body-part" style="right: 1.1rem">
+                    Mana dreapta
                   </div>
                   <div class="bar" style="top: 0.85rem; left: 0.5rem">
                     <div class="progress"></div>
@@ -108,14 +110,14 @@
                   <img src="inventory_images/line2.png" style="object-fit: cover" />
                 </div>
                 <div class="left-arm">
-                  <div class="body-part" style="right: 3.8rem">Left arm</div>
+                  <div class="body-part" style="right: 0.1rem">Mana Stanga</div>
                   <div class="bar" style="top: 0.85rem; left: 1.5rem">
                     <div class="progress"></div>
                   </div>
                   <img src="inventory_images/line.png" style="object-fit: cover" />
                 </div>
                 <div class="head">
-                  <div class="body-part" style="right: 5.6rem">Head</div>
+                  <div class="body-part" style="right: 1.1rem">Cap</div>
                   <div class="bar" style="top: 0.85rem; left: 0.5rem">
                     <div class="progress"></div>
                   </div>
@@ -124,7 +126,7 @@
               </div>
                 <!-- Default qb-inventory -->
                 <div class="player-inv-info">
-                    <span id="player-inv-label" class="player-inv-label">Player</span><br>
+                    <span id="player-inv-label" class="player-inv-label">Buzunare</span><br>
                         <div>
                     </div>
                     <span id="player-inv-weight"></span>
@@ -140,7 +142,8 @@
             <div class="inv-container">
               <div class="ply-inv-container">
                   <div class="player-inventory-bg">
-                  <div class="player-inventory" data-inventory="player"></div>
+                    <div class="player-inventory" data-inventory="player">
+                    </div>
               </div>
                 <div class="inv-hotbar-container">
                   <div class="player-inventory-first" data-inventory="player"></div>
@@ -148,6 +151,10 @@
           </div>
             <div class="player-inventory-backpack-bg">
               <div class="player-inventory-backpack" data-inventory="player">
+                                        <!-- 5 ITEM BOXES ON THE LEFT SIDE -->
+                                        <div class="player-body-leftboxes" data-inventory="player"></div>
+                                        <!-- SPECIAL BOXES ON THE RIGHT SIDE -->
+                                        <div class="player-body-rightboxes" data-inventory="player"></div>
               </div>
             </div>
                 <div class="oth-inv-container">
@@ -169,7 +176,7 @@
     
               <div  class="item-box-list">
                   <div class="filter-item">
-                      <div class="filter-text" style="left: -25%;">Weapons</div>
+                      <div class="filter-text" style="left: -25%;">Arme</div>
                       <svg data-type="weaponsName" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="fa" viewBox="0 0 576 512" >
                           <g transform="translate(288 256)" transform-origin="144 0">
                               <g transform="translate(0,0) scale(1,1)">
@@ -179,7 +186,7 @@
                       </svg>
                   </div>
                   <div class="filter-item">
-                      <div class="filter-text" style="left: -30%;">Materials</div>
+                      <div class="filter-text" style="left: -30%;">Materiale</div>
                       <svg data-type="materialName" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="fa" viewBox="0 0 512 512" >
                           <g transform="translate(256 256)" transform-origin="128 0">
                               <g transform="translate(0,0) scale(1,1)">
@@ -189,7 +196,7 @@
                       </svg>
                   </div>
                   <div class="filter-item">
-                      <div class="filter-text" style="left: -5%;">Tools</div>
+                      <div class="filter-text" style="left: -5%;">Unelte</div>
                       <svg data-type="settingsName" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="fa" viewBox="0 0 512 512" >
                           <g transform="translate(256 256)" transform-origin="128 0">
                               <g transform="translate(0,0) scale(1,1)">
@@ -199,7 +206,7 @@
                       </svg>
                   </div>
                   <div class="filter-item">
-                      <div class="filter-text" style="left: -5%;">Food</div>
+                      <div class="filter-text" style="left: -5%;">Mancare</div>
                       <svg data-type="foodsName" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="fa" viewBox="0 0 512 512" >
                           <g transform="translate(256 256)" transform-origin="128 0">
                               <g transform="translate(0,0) scale(1,1)">
@@ -209,7 +216,7 @@
                       </svg>
                   </div>
               <div class="filter-item">
-                <div class="filter-text" style="left: -20%;">Clothing</div>
+                <div class="filter-text" style="left: -20%;">Haine</div>
                 <svg data-type="clothesName" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="fa" viewBox="0 0 640 512" >
                     <g transform="translate(320 256)" transform-origin="160 0">
                         <g transform="translate(0,0) scale(1,1)">
@@ -243,11 +250,20 @@
                   </div>
               </div>
               <div class="item-shit" style="display: none;">
-                <div id="Use" class="item-shit-option"><i class="fas fa-arrow-right-to-bracket"></i> Use</div>
-                <div id="Give" class="item-shit-option"><i class="fas fa-hands"></i> Give</div>
-                <div id="ItemSplit" class="item-shit-option"><i class="fa-solid fa-cut"></i> Split</div>
-                 <div id="Drop" class="item-shit-option"><i class="fa-solid fa-hands-bubbles"></i> Drop</div>
+                <div id="QuickEquip" class="item-shit-option"><i class="fa-solid fa-person-hiking"></i> Echipeaza rapid</div>
+                <div id="Use" class="item-shit-option"><i class="fa-solid fa-person-dots-from-line"></i> Foloseste</div>
+                <div id="Give" class="item-shit-option"><i class="fa-solid fa-person-walking-arrow-right"></i> Ofera</div>
+                <div id="ItemSplit" class="item-shit-option"><i class="fa-solid fa-arrows-split-up-and-left"></i> Separa</div>
+                <!-- <div id="Drop" class="item-shit-option"><i class="fa-solid fa-toilet"></i> Arunca</div> -->
+                <div id="ViewAttachments" class="item-shit-option"><i class="fa-solid fa-cog"></i> Atasamente</div>
+                <div id="Dezechipeaza" class="item-shit-option"><i class="fa-solid fa-person-hiking"></i> Dezechipeaza</div>
                <!-- <div class="item-shit-option">Spilt</div> -->
+             </div>
+            <div class="item-split" style="display: none;">
+              <div class="item-split-range"></div>
+              <div id="item-split-amount">1</div>
+              <div class="item-split-action" onclick="console.log('Split handler works')">CONFIRMA</div>
+              <div class="item-split-cancel">RENUNTA</div>
             </div>
         </div>
 
@@ -289,6 +305,34 @@
       <div class="weapon-attachments-remove"><i class="fas fa-trash"></i></div>
       <div class="weapon-attachments-back"><p>RETURN</p></div>
   </div>
+
+    <div class="notify">
+        <div class="item-name">Bandage</div> 
+        <div class="item-type">Used</div>
+        <div class="item-count">1x</div>
+        <div class="item-img"><img src="../html/images/advscope_attachment.png" alt=""></div>
+        <svg class="notify-svg" width="88" height="100" viewBox="0 0 88 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M45.75 1.58771L85.0513 24.2783C86.1342 24.9035 86.8013 26.059 86.8013 27.3094V72.6906C86.8013 73.941 86.1342 75.0965 85.0513 75.7217L45.75 98.4123C44.6671 99.0375 43.3329 99.0375 42.25 98.4123L2.94873 75.7217C1.86583 75.0965 1.19873 73.941 1.19873 72.6906V27.3094C1.19873 26.059 1.86583 24.9035 2.94873 24.2783L42.25 1.58771C43.3329 0.962499 44.6671 0.962499 45.75 1.58771Z"
+                fill="url(#paint0_radial_4467_151)" fill-opacity="0.25"
+                stroke="url(#paint1_radial_4467_152)" />
+            <defs>
+                <radialGradient id="paint0_radial_4467_151" cx="0" cy="0" r="1"
+                    gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(44 50) rotate(48.6215) scale(62.1925)">
+                    <stop stop-color="#00F8B9" />
+                    <stop offset="1" stop-color="#00664C" />
+                </radialGradient>
+                <radialGradient id="paint1_radial_4467_152" cx="0" cy="0" r="1"
+                    gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(44 50) rotate(73.393) scale(74.3514)">
+                    <stop stop-color="#00F8B9" />
+                    <stop offset="1" stop-color="#00F8B9" stop-opacity="0.39" />
+                </radialGradient>
+            </defs>
+        </svg>
+    </div>
+
   <div class="itemboxes-container-background"></div>
   <div class="itemboxes-container">
   </div>
@@ -298,6 +342,7 @@
   <div class="z-hotbar-inventory">
       <!-- auto generated -->
   </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="js/app.js" defer></script>
